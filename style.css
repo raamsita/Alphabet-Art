@@ -1,0 +1,183 @@
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url('https://fonts.googleapis.com/css?family=Mochiy Pop One');
+
+
+
+.logo-img{
+    text-align: center;
+}
+
+
+.navbar{
+    display: inline-flex; 
+    width: 100%;
+    min-width: 320px;
+    background-color: #1375E4;
+    justify-content: space-around;
+    color: white;
+    
+}
+
+.nav-boxs:hover{
+    background-color: #004CA1;
+
+}
+.nav-img{
+    margin: 2px;
+    border-radius:30px;
+}
+.carousel-img{
+    width: 100%;
+    height:500px;
+
+}
+
+.text {
+    font-family:'Mochiy Pop One';
+    /* font-style:italic; */
+    font-size: 104px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    line-height: 6px;
+    text-align:center;
+}
+
+
+.container{
+
+    background-color: lightyellow; 
+    display: grid;
+    grid-template-columns: repeat(3,200px);
+    grid-template-rows: repeat(9,200px);
+    justify-content: center;
+    gap: 10px;
+    max-width: 100%;
+    text-align: center;
+}
+.front-card{
+    border: 1px solid black;
+    border-radius:10px;
+    height: 100%;
+    width: 100%;
+    /* background-color: crimson; */
+    position: absolute;
+
+}
+
+.back-card{
+    /* display: none; */
+    border: 1px solid black;
+    border-radius: 10px;
+    /* background-color:gold; */
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    height: 100%;
+    width: 100%;
+}
+.img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    
+}
+
+.filp-card{
+position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px;
+    width:  180px;
+    height: 200px;
+
+}
+.filp-card.flipped{
+    transform: rotateY(180deg);
+}
+   
+  @media(min-width:600px) { 
+     .container{ 
+    grid-template-columns:repeat(3,200px) ; 
+     } 
+ } 
+ @media (max-width:425px){ 
+     .container{ 
+             grid-template-columns: repeat(2, 200px);
+     }
+    }
+
+ .filpcard{
+    width: 200px;
+    height: 180px;
+
+ }
+ footer{
+    background-color:dodgerblue;
+    height: 100%;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    color: white;
+}
+.fa{
+    background-color: white;
+    height: 20px;
+    width: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    /* margin-left: 40px; */
+}
+.Follow-us p{
+    margin-left: 40px;
+
+}
+h3{
+    margin-left: 40px;
+
+}
+.footer-ul{
+    list-style: none;
+}
+
+.Follow-us a{
+    margin-left: 40px;
+}
+
+.footer-ul a{
+    text-decoration: none;
+    color: white;
+}
+
+.sajhe-sapne-logo{
+    border-radius:50%;
+   height:80px;
+   margin-left: 40px;
+}
+
+.sajhe-website{
+    text-decoration: none;
+    color: white;
+    margin-left: 40px;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
