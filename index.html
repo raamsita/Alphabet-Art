@@ -1,66 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alphabet ART</title>
-    <link rel="stylesheet" href="style.css"/>
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/41c3f97ee8.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
     <header>
-        <div class="logo-img">
-            <img class="logo-img" src="assets/header img/Alphabet header img.jpg"/>
+      <!-------------------------------------------- Header --------------------------------------------------------->
+      <!----------------------------- Create  header show the tittle name--AlphabetArt---------------------------- -->
+      <div class="logo-img">
+        <img
+          class="logo-img"
+          src="assets/headerImage/Alphabet header img.jpg"
+        />
+      </div>
+      <!-----------------------------------------------Nav-Bar ------------------------------------------------------- -->
+      <!----------- Create the navbar and small three navboxs show----Workshop---Contest---Stricker---icons  and text ---->
+      <nav class="navbar">
+        <div class="nav-boxs" id="img1">
+          <img
+            class="nav-img"
+            src="assets/navImage/Alphabet nav1 .jpg"
+            alt="WorkShop"
+          />
+          <p class="nav-text">WorkShop</p>
         </div>
-        <nav class="navbar">
-                <div class="nav-boxs" id="A">
-                    <img class="nav-img" src="assets/nav img/Alphabet nav1 .jpg" alt="WorkShop"/>
-                    <p class="nav-text">WorkShop</p>
-                </div>
-                <div class="nav-boxs" id="B">
-                    <img class="nav-img" src="assets/nav img/Alphabet nav2.jpg" alt="contest"/>
-                    <p class="nav-text">Contest</p>
-                </div>
-                <div class="nav-boxs" id="C">
-                    <img class="nav-img" src="assets/nav img/Alphabet nav3.jpg" alt="stickers"/>
-                    <p class="nav-text">Stickers</p>
-                </div>
-        </nav>
+        <div class="nav-boxs" id="img2">
+          <img
+            class="nav-img"
+            src="assets/navImage/Alphabet nav2.jpg"
+            alt="contest"
+          />
+          <p class="nav-text">Contest</p>
+        </div>
+        <div class="nav-boxs" id="img3">
+          <img
+            class="nav-img"
+            src="assets/navImage/Alphabet nav3.jpg"
+            alt="stickers"
+          />
+          <p class="nav-text">Stickers</p>
+        </div>
+      </nav>
     </header>
+    <!------------------------------------------------- Carousel -------------------------------------------------------->
+    <!-- ----------------------------------Create Carousel to show images  in  slideshow------------------------------------- -->
     <div class="carousel-box">
-        <img  class="carousel-img" src="assets/carousel img/img1.jpeg"/>
-
+      <img class="carousel-img" src="assets/carouselImage/img1.jpeg" />
     </div>
-
-
-    <div class="container"></div>
-
-    <footer>
-         <h3>Made with love by Sapne waalis!</h3>
-            <div class="Follow-us">
-                <p>Follow us</p>
-                <a href="https://www.facebook.com/hashtag/sajhesapne/?source=feed_text&epa=HASHTAG" class="fa fa-facebook"></a>
-                <a href="https://www.instagram.com/sapnewaali/" class="fa fa-instagram"></a>
-                <a href="https://in.linkedin.com/company/sajhe-sapne" class="fa fa-linkedin"></a>
-                <a href="https://www.youtube.com/channel/UC2YOf3houhn92YC2JsNhHxw/featured?view_as=subscriber" class="fa fa-youtube"></a>
-                <a href="https://twitter.com/sajhesapne?lang=en" class="fa fa-twitter"></a>
-            </div>
+    <!----------------------------------------------- Dot-box------------------------------------------------------- -->
+    <!-------------------------------------- Create Dot-boxDiv show with image---------------------------------------->
+    <div class="dot-box"> 
+      <span class="dot" id="dot1"></span>
+      <span class="dot" id="dot2"></span>
+      <span class="dot" id="dot3"></span>
+    </div>
+    <!---------------------------------------------------- Gallery Button ------------------------------------------------>
+    <!------------------------------------------------- Create gallery- button ------------------------------------------------------>
     
-            <div class="icons">
-                <ul class="footer-ul">
-                    <li class="footer-text"><a href="#">Contact us</a></li>
-                    <li class="footer-text"><a href="#">Careers</a></li>
-                    <li class="footer-text"><a href="#">Terms of use</a></li>
-                    <li class="footer-text"><a href="#">Privacy Policy</a></li>
-                    <li class="footer-text"><a href="#">Make a donation</a></li>
-                </ul>
-            </div>
-            <div>
-                <img class="sajhe-sapne-logo" src="assets/Logo img/sajhe logo.jpeg" alt="logo">
-            </div>
-            <div >
-                <a class="sajhe-website" href="https://sajhesapne.org/about">www.sajhesapne.org</a>
-            </div>
+    <button type="button" id ="gallery">Gallery</button>
+    <!---------------------------------------------------- Container-------------------------------------------------- -->
+    <!---------------------------------------------------Create Container with grid in javaScript----------------------------------------------------------- -->
+    <div class="container"></div>
+    
+    <!--------------------------------------------------------- Submit-------------------------------------------------------- -->
+    <!-------------------------------------------------Create Submit button show the submit Entry------------------------------->
+   
+    <button type="button" id ="submit">Submit Entry</button>
+    <!--------------------------------------------------------------- h2 ----------------------------------------------------->
+    <!------------------------------------------------------- Create h2  paragraph--------------------------------------------------------->
+    
+    <h2>Made with love by Sapne waalis!</h2>
+
+
+    <!------------------------------------------------------------ Footer--------------------------------------------------------- -->
+    <!------------------------------------------------------Create Footer show the socal link and logo image---------------------------------------------------------------->
+    
+    <footer>
+      <div class="follow-us">
+        <p>Follow us</p>
+        <a
+          href="https://www.facebook.com/hashtag/sajhesapne/?source=feed_text&epa=HASHTAG"
+          class="fa fa-facebook"
+        ></a>
+        <a
+          href="https://www.instagram.com/sapnewaali/"
+          class="fa fa-instagram"
+        ></a>
+        <a
+          href="https://in.linkedin.com/company/sajhe-sapne"
+          class="fa fa-linkedin"
+        ></a>
+        <a
+          href="https://www.youtube.com/channel/UC2YOf3houhn92YC2JsNhHxw/featured?view_as=subscriber"
+          class="fa fa-youtube"
+        ></a>
+        <a
+          href="https://twitter.com/sajhesapne?lang=en"
+          class="fa fa-twitter"
+        ></a>
+      </div>
+
+      <div class="icons">
+        <ul class="footer-ul">
+          <li class="footer-text"><a href="#">Contact us</a></li>
+          <li class="footer-text"><a href="#">Careers</a></li>
+          <li class="footer-text"><a href="#">Terms of use</a></li>
+          <li class="footer-text"><a href="#">Privacy Policy</a></li>
+          <li class="footer-text"><a href="#">Make a donation</a></li>
+        </ul>
+      </div>
+      <div>
+        <img
+          class="sajhe-sapne-logo"
+          src="assets/LogoImage/sajhe logo.jpeg"
+          alt="logo"
+        />
+      </div>
+      <div>
+        <a class="sajhe-website" href="https://sajhesapne.org/about"
+          >www.sajhesapne.org</a
+        >
+      </div>
     </footer>
-</body>
-<script src="main.js"></script>
+    <script src="main.js"></script>
+  </body>
 </html>
