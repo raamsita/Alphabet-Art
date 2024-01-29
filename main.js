@@ -1,151 +1,129 @@
-// // -----------------------------Select--- Container--Carousel---Dots--------------------------------------------------------------------------
+//All words
+let words = ["Alien","Butterfly","Cat",
+             "Dinosaur","Eagle","Flower",
+             "Giraffe","Hammer","Ice",
+             "Jellyfish","Keys","Lamp",
+             "Mountains","Ninja","Omelette",
+             "Pirate","Queen","Rabbit",
+             "Snowman", "Tree", "Unicorn",
+             "Volcano","Watermelon","X-Ray",
+             "Yak","Zebra"]
 
+//Set up text to speech
+var msg = new SpeechSynthesisUtterance();
+
+// Add Alphabet Cards
 let container = document.querySelector(".container");
-let carousel = document.querySelector(".carousel-img");
-let dots = document.querySelectorAll(".dot")
-let alphabet;
-let i =0;
-// for (let i = 65,j=0,k=0; i <= 90; i++,j++,k++) {
-//   if(j>=6){
-//     j=0;
-//   }
+for(let i=65; i<=90; i++){
+    let alphabet = String.fromCharCode(i);
 
-// ------------------------------------------Carousel------------------------------------------------------------------------------
-// -------------------------------------- Create Carousel show types of image with  three dots-----------------------
-let carouselArr = [
-  "assets/carouselImage/img3.jpeg",
-  "assets/carouselImage/img6.jpeg",
-  "assets/carouselImage/img6.jpeg",
-  "assets/carouselImage/img7.jpeg"
-]
-autoplay = setInterval(function(){
-  i++;
-  let selectedDotId = "#dot" + i;
-  let selectedDot = document.querySelector(selectedDotId);
-  dots.forEach(dot => dot.style.backgroundColor = "white");
-  selectedDot.style.backgroundColor = "black"
-  if(i>2)
-  i = 0 ;
-carousel.setAttribute("src",carouselArr[i])
-},1200);
+    let card = document.createElement("div");
+    card.classList.add("card");
+    container.appendChild(card);
 
-// ---------------------------------------------Create loop--------------------------------------------------------
-for (let i = 65,j=0,k=0; i <= 90; i++,j++,k++) {
-  if(j>=6){
-    j=0;
-  }
-  
-// ---------------------------------------- Create Box Div-----------------------------------------------------------
-  alphabet = String.fromCharCode(i);
-  let frontDiv = document.createElement("div");
-  let backDiv = document.createElement("div")
-  container.appendChild(frontDiv);
-  container.appendChild(backDiv);
-  frontDiv.setAttribute("class", "front-card");
-  backDiv.setAttribute("class","back-card");
+    //backcard
+    let backCard = document.createElement("div");
+    let alphabetText = document.createElement("p");
+    alphabetText.innerText = alphabet;
 
-// ---------------------------------------- Create Text to front Div-----------------------------------------------------------------
- 
-let text = document.createElement("h1");
-text.setAttribute("class", "text");
-frontDiv.appendChild(text);
-text.innerHTML = alphabet;
+    backCard.classList.add("backCard");
+    backCard.appendChild(alphabetText);
+    card.appendChild(backCard);
 
-// ----------------------------------------Create Image to backDiv--------------------------------------------------------------------
+    //frontcard
+    let frontCard = document.createElement("div");
+    frontCard.classList.add("frontCard");
+    card.appendChild(frontCard);
+        //alphabet image
+    let imgContainer = document.createElement("div");
+    let alphabetImg = document.createElement("img");
+    alphabetImg.src = `./assets/alphabet_images/${alphabet}.png`;
+    imgContainer.appendChild(alphabetImg);
+    frontCard.appendChild(imgContainer);
+        //word for the alphabet
+    let word = document.createElement("p");
+    word.innerText = words[i - 65];
+    frontCard.appendChild(word);
+        //div containing icons at the bottom of each card
+    let faIcons = document.createElement("div");
+    faIcons.classList.add("fa-icons");
+    frontCard.appendChild(faIcons);
+        //Heart Icon           
+    let likeIcon = document.createElement("i");
+    likeIcon.classList.add("fa-regular", "fa-heart");
+    faIcons.appendChild(likeIcon);
+        //Sound Icon
+    let soundIcon = document.createElement("i");
+    soundIcon.classList.add("fa-solid", "fa-volume-high");
+    faIcons.appendChild(soundIcon);
+        //Share Icon
+    let shareIcon = document.createElement("i");
+    shareIcon.classList.add("fa-solid", "fa-share-from-square");
+    faIcons.appendChild(shareIcon);
+    
+    //Show front card on click
+    card.addEventListener("click", () => {
+        card.classList.toggle("flipped");
+        if(card.classList.contains("flipped")) {
+            msg.text = words[i-65];
+            window.speechSynthesis.speak(msg);
+        }
+    })
 
-let image =document.createElement("img")
-image.setAttribute("src",`assets/newAlphabetImg/${alphabet.toLowerCase()}.png`)
-image.setAttribute("class","img");
-backDiv.appendChild(image)
+    // Animate star icon on click
+    soundIcon.addEventListener("click",(event)=>{
+        soundIcon.classList.add("fa-beat");
+        window.speechSynthesis.speak(msg);
+        event.stopPropagation(); 
+    })
 
-// ----------------------------------------- Create Flipcard Div to flip backside---------------------------------------------------------------
+    soundIcon.addEventListener("mouseleave",(event)=>{
+        soundIcon.classList.remove("fa-beat");
+        event.stopPropagation(); 
+    })
 
-let filpcard = document.createElement("div")
-filpcard.appendChild(frontDiv);
-container.appendChild(filpcard);
-filpcard.appendChild(backDiv);
-filpcard.setAttribute("class","filp-card");
+    //Color the heart red when user clicks like
+    likeIcon.addEventListener("click",(event)=>{
+        likeIcon.classList.toggle("fa-solid");
+        likeIcon.style.color = "red";
+        event.stopPropagation();
+    })
 
-// -----------------Create Sound with in a array ------------------------------------------------------------------------------------
+    //heart beat on hover
+    likeIcon.addEventListener("mouseover",(event)=>{
+        likeIcon.classList.add("fa-bounce");
+        event.stopPropagation();
+    })
+    likeIcon.addEventListener("mouseleave",(event)=>{
+        likeIcon.classList.remove("fa-bounce");
+        event.stopPropagation();
+    })
 
-let soundAll =[
-  "apple","ball","cat","dog","elephant","fish","goat","hourse","igloo","joker","kite","lion","monkey","nose","octoups","pig","queen","rocket","snake","tiger","umbrella","van","watermelon","x-ray","yak","zebra"
-]
+    shareIcon.addEventListener("mouseover",(event)=>{
+        shareIcon.classList.add("fa-fade");
+        event.stopPropagation();
+    })
 
-filpcard.addEventListener('click',() =>{
-filpcard.classList.toggle("flipped")
-// });
+    shareIcon.addEventListener("mouseleave",(event)=>{
+        shareIcon.classList.remove("fa-fade");
+        event.stopPropagation();
+    })
 
-// ----------------------------------------- Create Sound ------------------------------------------------------------------------------------
-
-let sound = new SpeechSynthesisUtterance();
-sound.text = soundAll[k]
-window.speechSynthesis.speak(sound);
-});
-
-// ------------------------------------------Create Word in backDiv ------------------------------------------------------------
-
-let word = document.createElement("p");
- word.innerHTML = soundAll[k];
- backDiv.appendChild(word)
- word.setAttribute("class","word");
-
-  // -------------------------------------------BackDiv icons Like ,Expand,Share----------------------------------------------------------
-  // ----------------------------------------------faIcon------------------------------------------------------------------------------
-
-  let faIcons = document.createElement("div")
-  faIcons.classList.add("fa-icons")
-  backDiv.appendChild(faIcons)
-  // console.log(faIcons);
-
-
-
-
-  //-------------------------------------------------------------like icon------------------------------------------
-  
-  let like = document.createElement("i")
-  like.classList.add("fa-regular", "fa-heart")
-  faIcons.appendChild(like)
-
-
-  like.addEventListener("click", (event) => {
-  like.classList.toggle("fa-solid");
-  like.style.color = "red" ;
-  event.stopPropagation()
-});
-
-  //---------------------------------------------------------expend icon--------------------------------------------
-  
-  let expend = document.createElement("i")
-  expend.classList.add("fa-solid", "fa-arrow-rotate-left");
-  faIcons.appendChild(expend)
-
-
-
-
-
-  //-----------------------------------------------------------share icon---------------------
-  let share = document.createElement("i")
-  share.classList.add("fa-solid", "fa-share-from-square");
-  faIcons.appendChild(share)
-
-
-
-
-
-// ----------------------------------------Patteern Div------------------------------------------------------
-// ------------------------------------------ Create Pattern in frontDiv------------------------------------------------------------------
-
-let patternAll = [
-  "pattern1",
-  "pattern2",
-  "pattern3",
-  "pattern4",
-  "pattern5",
-  "pattern6"
-]
-frontDiv.classList.add("front-card")
-frontDiv.classList.add(patternAll[j])
-
+    shareIcon.addEventListener("click",(event)=>{
+        event.stopPropagation();
+    })
 
 }
+
+// Give design background to back of each alphabet card
+let allBackCards = document.querySelectorAll(".backCard");
+let patterns = ["pattern1", "pattern2", "pattern3",
+                "pattern4", "pattern5", "pattern6"];
+
+let j = 0;                
+allBackCards.forEach((backCard)=>{
+    if(j>5)
+        j=0;
+    backCard.classList.add(patterns[j]);
+    j++;
+})
